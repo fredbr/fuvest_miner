@@ -42,7 +42,7 @@ def get_pairs(text):
 	return zip(get_names(text), get_courses(text))
 
 def main():
-	file_name, course_filter = parser.parse()
+	file_name, course_filter, out_file = parser.parse()
 	
 	text = extract_text(file_name, laparams=layout).split('\n')
 
@@ -52,8 +52,13 @@ def main():
 
 	names = [name for name, course in students if course == course_filter]
 
-	for name in names:
-		print(name)
+	if out_file:
+		with open(out_file, 'w+') as output:
+			for name in names:
+				print(name, file=output)
+	else:
+		for name in names:
+				print(name)
 
 if __name__ == '__main__':
 	main()

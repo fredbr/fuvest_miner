@@ -6,4 +6,4 @@
 
 ## Uso
 
-`python3 main.py [pdf dos chamados] [código do curso]`
+`./miner.py [pdf dos chamados] [código do curso]`
